@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Slider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <main>
+            <div class="container">
+                <div class="container-img-overlay">
+                    <div class="container-img">
+                        <img class="img" :class="i == currentActiveIndex ? 'active' : ''" v-for="image, i in imagesList" :src="image.url" :alt="'img n°' + (i + 1)">
+                    </div>
+                    <div class="container-overlay" v-for="image, i in imagesList">
+                        <h1 class="title" :class="i == currentActiveIndex ? 'active' : ''" >{{ image.title }}</h1>
+                        <p class="news" :class="i == currentActiveIndex ? 'active' : ''">{{ image.text }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- arrows for navigation up/down in the slider -->
+            <nav class="nav">
+                <a href="#" class="circle arrow-previous" @click="onPreviousClick"><i class="fas fa-chevron-up"></i></a>
+                <a href="#" class="circle arrow-forward" @click="onForwardClick"><i class="fas fa-chevron-down"></i></a>
+            </nav>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
